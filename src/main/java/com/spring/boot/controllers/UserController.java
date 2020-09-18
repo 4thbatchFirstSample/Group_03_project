@@ -11,32 +11,36 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.spring.boot.converters.ProjectConverter;
-import com.spring.boot.dto.ProjectDto;
-import com.spring.boot.services.ProjectService;
+import com.spring.boot.converters.UserConvertor;
+import com.spring.boot.dto.UserDto;
+import com.spring.boot.repositories.UserRepository;
+import com.spring.boot.services.UserService;
 
 @RestController
 @RequestMapping(value ="api/v1")
-
-public class ProjectController {
-
-	@Autowired
-	private ProjectService projectService;
+public class UserController {
 	
-	@PostMapping(value = "/addproject")
-	public ResponseEntity<Object> addEmployee(@RequestBody ProjectDto projectDto) {
-		projectService.addProject(ProjectConverter.projectDtoToProject(projectDto));
+	@Autowired
+	private UserService userService;
+	
+	@PostMapping(value = "/adduser")
+	public ResponseEntity<Object> addEmployee(@RequestBody UserDto userDto) {
+		userService.addUser(UserConvertor.userDtoToUser(userDto));
 		return new ResponseEntity<Object>("Added Successfully", HttpStatus.CREATED);
 	}
-	@DeleteMapping(value="/deleteproject/{id}")
-	void deleteUser(@PathVariable Long id) {
-		projectService.deleteProject(id);
-		
+	
+	@DeleteMapping(value="/deleteuser/{Uid}")
+	void deleteUser(@PathVariable Long Uid) {
+		userService.deleteUser(Uid);
 	}
 	
-	@GetMapping(value="getbyidproject/{id}")
-	void getByID(@PathVariable Long id) {
-		projectService.getProject(id);
-		
+	@GetMapping(value="getbyiduser/{Uid}")
+	void getByID(@PathVariable Long Uid) {
+		userService.getUser(Uid);
 	}
+	
+	
+	
+
+	
 }
