@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.spring.boot.converters.UserConvertor;
 import com.spring.boot.dto.UserDto;
-import com.spring.boot.repositories.UserRepository;
 import com.spring.boot.services.UserService;
 
 @RestController
@@ -29,18 +28,10 @@ public class UserController {
 		return new ResponseEntity<Object>("Added Successfully", HttpStatus.CREATED);
 	}
 	
-	@DeleteMapping(value="/deleteuser/{Uid}")
-	void deleteUser(@PathVariable Long Uid) {
-		userService.deleteUser(Uid);
-	}
-	
-	@GetMapping(value="getbyiduser/{Uid}")
-	void getByID(@PathVariable Long Uid) {
-		userService.getUser(Uid);
-	}
 	
 	
 	
+
 
 	
 }

@@ -1,5 +1,7 @@
 package com.spring.boot.services;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,8 +29,9 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public void getUser(Long Uid) {
-		userRepository.findById(Uid);
+	public Optional<User> getUser(Long Uid) {
+		
+		return userRepository.findById(Uid);
 		
 	}
 

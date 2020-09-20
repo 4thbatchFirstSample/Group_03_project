@@ -2,7 +2,7 @@ package com.spring.boot.dto;
 
 public class UserDto {
 	private long Uid;
-	private String userName;
+	private String UserName;
 	private String Password;
 	
 	public long getUid() {
@@ -14,10 +14,10 @@ public class UserDto {
 	
 	
 	public String getUserName() {
-		return userName;
+		return UserName;
 	}
 	public void setUserName(String userName) {
-		this.userName = userName;
+		UserName = userName;
 	}
 	public String getPassword() {
 		return Password;
