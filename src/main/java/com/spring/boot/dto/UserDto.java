@@ -12,7 +12,6 @@ public class UserDto {
 		Uid = uid;
 	}
 	
-	
 	public String getUserName() {
 		return UserName;
 	}

@@ -12,6 +12,7 @@ public interface ProjectService {
 	public void updateProject(long id);
 	public	void searchbyid(long id);
 	public  List<Project> getProjects();
+	public boolean isIdExists(Long id);
 	
 	
 }

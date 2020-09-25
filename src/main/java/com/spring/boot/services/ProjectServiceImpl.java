@@ -2,10 +2,8 @@ package com.spring.boot.services;
 
 import java.util.List;
 import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.spring.boot.entities.Project;
 import com.spring.boot.repositories.ProjectRepository;
 
@@ -51,6 +49,12 @@ public  class ProjectServiceImpl implements ProjectService {
 	public Optional<Project> getProjectbyId(long id) {
 		return projectRepository.findById(id);
 		
+	}
+
+	@Override
+	public boolean isIdExists(Long id) {
+		// TODO Auto-generated method stub
+		return projectRepository.existsById(id);
 	}
 
 

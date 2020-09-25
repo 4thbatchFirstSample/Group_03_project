@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -14,6 +16,11 @@ public class User {
 	private Long Uid;
 	private String UserName;
 	private String Password;
+	
+	@ManyToOne
+	@JoinColumn(name="projectId", nullable = false)
+	private Project project;
+	
 	public Long getUid() {
 		return Uid;
 	}
@@ -32,6 +39,12 @@ public class User {
 	}
 	public void setPassword(String password) {
 		Password = password;
+	}
+	public Project getProject() {
+		return project;
+	}
+	public void setProject(Project project) {
+		this.project = project;
 	}
 	
 	
